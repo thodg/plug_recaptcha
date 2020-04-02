@@ -16,7 +16,7 @@ defmodule PlugRecaptcha do
   def call(_conn, _opts), do: raise "Recaptcha Secret is missing"
 
   defp verify_signature(signature, secret) do
-    post_url = "https://www.google.com/recaptcha/api/siteverify?secret=#{secret}&response=#{signature}"
+    post_url = "https://www.google.com/recaptcha/api/siteverify?secret=#{URI.encode(secret)}&response=#{URI.encode(signature)}"
     case HTTPoison.post(post_url, "", [{"Content-Type", "application/json"}]) do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
         Poison.decode(body)
