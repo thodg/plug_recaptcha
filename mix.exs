@@ -3,7 +3,7 @@ defmodule PlugRecaptcha.Mixfile do
 
   def project do
     [app: :plug_recaptcha,
-     version: "0.2.0",
+     version: "0.2.1",
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -11,7 +11,7 @@ defmodule PlugRecaptcha.Mixfile do
      package: package(),
      deps: deps(),
      name: "plug_recaptcha",
-     source_url: "https://github.com/alicanerdogan/plug_recaptcha"]
+     source_url: "https://github.com/thodg/plug_recaptcha"]
   end
 
   def application do
